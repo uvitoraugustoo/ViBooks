@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <ImageView
+        android:id="@+id/imgLivro"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="24dp"
+        android:scaleType="centerCrop"
+        android:contentDescription="Capa do Livro"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tituloLivro" />
+
+    <TextView
+        android:id="@+id/tituloLivro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Título do Livro"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#4B7494"
+        app:layout_constraintTop_toTopOf="@+id/imgLivro"
+        app:layout_constraintStart_toEndOf="@+id/imgLivro"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp" />
+
+    <TextView
+        android:id="@+id/autor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Autor do Livro"
+        android:textSize="16sp"
+        android:textColor="#4B7494"
+        app:layout_constraintTop_toBottomOf="@+id/tituloLivro"
+        app:layout_constraintStart_toStartOf="@+id/tituloLivro"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/resumoLivro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Resumo do Livro"
+        android:textSize="15sp"
+        android:textColor="#4B7494"
+        app:layout_constraintTop_toBottomOf="@+id/autor"
+        app:layout_constraintStart_toStartOf="@+id/autor"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
