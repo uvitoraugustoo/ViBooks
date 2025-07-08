@@ -1,8 +1,8 @@
 package com.vitoraugusto.vibooks.adapter;
 
 
-
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.vitoraugusto.vibooks.R;
 import com.vitoraugusto.vibooks.model.Livro;
+import com.vitoraugusto.vibooks.view.MainActivity;
 
 import java.util.List;
 
@@ -41,6 +42,23 @@ public class LivroAdapter extends RecyclerView.Adapter<LivroAdapter.LivroViewHol
         holder.autor.setText("Autor: " + livro.getAutor());
         holder.resumo.setText("Resumo: " + livro.getResumo());
         holder.imgLivro.setImageURI(Uri.parse(livro.getImagemUri()));
+        holder.itemView.setOnLongClickListener(v -> {
+            livros.remove(position);
+            notifyItemRemoved(position);
+            notifyItemRangeChanged(position, livros.size());
+            return true;
+        });
+        holder.itemView.setOnClickListener(v ->{
+            Intent intent = new Intent(context, MainActivity.class);
+           intent.putExtra("título: ", livro.getTitulo());
+
+          intent.putExtra("Autor: ", livro.getAutor());
+           intent.putExtra("Resumo: ", livro.getResumo());
+          intent.putExtra("Imagem:", livro.getImagemUri());
+          intent.putExtra("Position:", holder.getAdapterPosition());
+          context.startActivity(intent);
+
+        });
     }
 
     @Override
@@ -59,5 +77,7 @@ public class LivroAdapter extends RecyclerView.Adapter<LivroAdapter.LivroViewHol
             resumo = itemView.findViewById(R.id.resumoLivro);
             imgLivro = itemView.findViewById(R.id.imgLivro);
         }
+
     }
+
 }

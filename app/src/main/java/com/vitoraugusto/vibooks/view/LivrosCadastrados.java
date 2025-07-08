@@ -19,9 +19,10 @@ import java.util.List;
 public class LivrosCadastrados extends AppCompatActivity {
     private RecyclerView recyclerView;
     private LivroAdapter livroAdapter;
-    private static final List<Livro> livros = new ArrayList<>();
+    private List<Livro> livros = new ArrayList<>();
     private ImageView add;
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +45,7 @@ public class LivrosCadastrados extends AppCompatActivity {
             livros.add(new Livro(titulo, autor, resumo, imagemUri));
             livroAdapter.notifyItemInserted(livros.size() - 1);
         }
-
         add.setOnClickListener(v -> startActivity(new Intent(this, MainActivity.class)));
+        }
+        
     }
-}

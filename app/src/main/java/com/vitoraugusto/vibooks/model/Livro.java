@@ -15,6 +15,22 @@ public class Livro {
         this.imagemUri = imagemUri;
     }
 
+    public Livro() {
+
+    }
+
+    public void setResumo(String resumo) {
+        this.resumo = resumo;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
     public String getTitulo() { return titulo; }
     public String getAutor() { return autor; }
     public String getResumo() { return resumo; }

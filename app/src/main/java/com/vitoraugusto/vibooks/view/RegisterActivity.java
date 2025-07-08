@@ -1,7 +1,6 @@
 package com.vitoraugusto.vibooks.view;
 
 
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -52,11 +51,11 @@ public class RegisterActivity extends AppCompatActivity {
             String senh = senha.getText().toString().trim();
             String cp = cpf.getText().toString().trim();
 
-            if (    nom.isEmpty() || cp.isEmpty() || emai.isEmpty() || senh.isEmpty()) {
+            if (nom.isEmpty() || cp.isEmpty() || emai.isEmpty() || senh.isEmpty()) {
                 Toast.makeText(RegisterActivity.this, "Preencha todos os Campos", Toast.LENGTH_SHORT).show();
             } else if (cpf.length() != 11) {
                 Toast.makeText(RegisterActivity.this, "O CPF esta incorreto, o CPF deve conter 11 numeros", Toast.LENGTH_SHORT).show();
-            }else if (!emailValido((emai))) {
+            } else if (!emailValido((emai))) {
                 Toast.makeText(this, "Digite um email válido", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(RegisterActivity.this, "Cadastro Finalizado!!", Toast.LENGTH_SHORT).show();
@@ -90,6 +89,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
     }
+
     public boolean emailValido(String email) {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
