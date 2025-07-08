@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         nomeAutor = findViewById(R.id.nomeAutor);
         resumo = findViewById(R.id.resumo);
 
-
         btnEscolherImagem.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
             intent.setType("image/*");
@@ -37,19 +35,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         cadastrar.setOnClickListener(v -> {
-            String tituloLivro = titulo.getText().toString();
-            String autor = nomeAutor.getText().toString();
-            String resumoLivro = resumo.getText().toString();
-
-            Intent intent = new Intent(MainActivity.this, livrosCadastrados.class);
-
-            intent.putExtra("titulo", tituloLivro);
-            intent.putExtra("autor", autor);
-            intent.putExtra("resumo", resumoLivro);
+            Intent intent = new Intent(MainActivity.this, LivrosCadastrados.class);
+            intent.putExtra("titulo", titulo.getText().toString());
+            intent.putExtra("autor", nomeAutor.getText().toString());
+            intent.putExtra("resumo", resumo.getText().toString());
             if (imagemUriSelecionada != null) {
                 intent.putExtra("imagem_uri", imagemUriSelecionada.toString());
             }
-
             startActivity(intent);
         });
     }
@@ -57,11 +49,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             imagemUriSelecionada = data.getData();
         }
     }
 }
-
-

@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ViBooks"
         tools:targetApi="31">
-        <activity android:name=".view.livrosCadastrados"/>
+        <activity android:name=".view.LivrosCadastrados"/>
 <activity android:name=".view.RegisterActivity"/>
         <activity android:name=".view.LoginActivity"/>
 
